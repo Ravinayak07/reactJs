@@ -47,13 +47,23 @@ head conrains the title, link. -->
         <!--
             CSS can be used in three types:
             1. internal
-            2. inline
+            2. inline (means one line) > not good because it will be hectic when u hav large code base
             3. external
         -->
 
         <p id="bla">Internal CSS</p>
         <p stye="color: pink; font-size: 50px;">Inline CSS</p>
-
+    
+        <script src="script.js"></script>
+         <!--
+            WHY script tag should be ket at the bottom of body tag
+        > Because
+        A html file loads from top to bottom. First heads loads, then body.
+        If we keep js file at the top, then the website will take little to load as
+        js is a heavy file(as it will have all logics,funs,etc)
+        thats why js file is kept at bottom, so that the UI of the website gets load
+        first and the user sees it otherwise user will be frustated.
+        -->
     </body>
 </html>
 
