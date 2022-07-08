@@ -73,7 +73,9 @@ After successfully creating a react App, the folder contains
 2) package.json : contains the information of app like name of app, version of app, dependencies( the packages on which the app depends), scripts(npm start, build, etc run from here)
 3) package-lock.json : We can't change this. It is formed from package.json only
 4) .gitignore files : In this the files which we don't want to put on github like password files, keys , enviroment files
-5) Src->App.test.js : All the test files are written by react. so that if there is some changes/updation , then these test files lets us know. For ex: react had made some updation and thats why our project is not working. In that case, the test files tells what upadtion has been had and how can we manage it
+5) Src->App.test.js : All the test files are written by react. so that if there is some changes/updation , then these test files lets us know. For ex: react had made some updation and thats why our project is not working. In that case, the test files tells what upadtion has been had and how can we manage it.
+So basically these test files are not needed that much. its better to remove them(App.test.js, setUp.test.js, etc).
+- test files are like test cases which checks whether your code is running well or not. So the developers of react made react along with test files so that if there is break in code, they can identify and rectify it. and when we create a react app, in the starting there will a react logo and text below. Since we don't need that, thats why we also don't need their test files/test cases.  it will unnecessarily increase the files
 6) src->App.js : component of react app 
 7) src->index.js: we import and call App.js here. So the main code is wriiten in App.js and it is called in index.js. The whole app.js fie is written inside index.js in a single line as <App />
 - React is a single page Application. You can understand this when u see that it actually has a single page only i.e only one index.html which is inside the public folder. Inside the file there is <div id="root"></div> which takes it to the index.js and from there it goes to display the content of app.js. So basically it is the index.html which runs on the browser. So the hierarchy is index.html -> index.js -> App.js -> other compenents
@@ -97,3 +99,185 @@ In html we load css and javascript but in react we import them. Actually in reac
 now go to the project folder, and run:
 
 - npm start   : this will open your project at http://localhost:3000/
+
+
+Varibales in js
+- no need to specify the data type:
+- const a =10;
+- variables can be declared in three types: const, var , let
+
+## const
+- connot be modified or reinitialized
+
+## let:
+- can be changed but can't be reinitialsied
+let b =30;
+b = 20;
+let b =40; //error
+
+## var:
+- can be used in any way
+var name = "Ravi"
+name = "Sinu"
+
+var name = 10; //var can be reinitialised. now name has integer value
+
+# strictness order:
+- const(most strict) > let > var(least strict)
+# Diff between let and var
+
+
+# Function in c++:
+int funname(){
+  cout<<"ravi";
+  return 0;
+}
+
+# Function in js:
+- Type 1:
+```
+//function defination
+
+//in fun def also, data type not needed. In fact data type is not needed in JS 
+function funname() {  
+  console.log("Ravi");
+  return;
+}
+//function call
+funname();
+```
+- Type 2: using Arrow operators
+```
+const funname = () => {   //also called fat arrow fun or opeartor
+  console.log("Ravi");
+  return;
+}
+
+//function call
+funname();
+```
+- Type 1 and Type 2 are exactly the same just different way of writing. There is no difference in functionalities
+
+
+//Global execution context
+:- Its is like a container. Whatever js code runs, that first enters into GEC which is 
+a container. There it is used as stack (push and pop). thats why GEC is also 
+called call stack.
+
+whenever you run a fun or any variable in javascript, two things happen:
+
+
+function xyz() {
+   cout<<"Ravi";
+}
+
+const a = b;
+
+- step 1: GEC : Create a container and reserves a memory for that fun or variable i.e for fun xyz and variable a
+- step 2: xyz ka code and a ka value is added to the  container created in step 1. step 2 will work when we use it. ex: fun call
+- ex: xyz();
+- for const, step 1 is variable declaration
+step 2 is assigning value
+
+Now when you run the fun:
+xyz();
+
+it will first go to GEC to check whether there is any container having code of xyz. If its there, it will say it to execute it
+
+
+- Unlike c++, in js you can call fun before defining it
+- For ex:
+```
+xyz();    //this is also right
+
+function xyz(){
+
+}
+```
+but it will not work in case of const. For const you have to define before using it
+ex:
+```
+//Error
+console.log(a);
+const a =10;
+```
+```
+//Correct
+const a =10;
+console.log(a);
+
+```
+-  Hence in function of type 2, fun def should be before fun call due to the presence of const. Ex:
+```
+//Error
+funname();
+
+const funname = () => {   
+  console.log("Ravi");
+  return;
+}
+```
+```
+//Correct
+
+const funname = () => {   
+  console.log("Ravi");
+  return;
+}
+
+funname();
+```
+- But in type 1, you can call before defining
+
+
+- there are two types of components in react:
+- Component name should always start with capital letter
+1) Class components : not used anymore due to some limitations. Ex:
+```
+class ClassName extends React.Components {
+      render() {
+          return <h1>hello</h1>
+      }
+}
+```
+2) Functional Components. ex:
+```
+
+function App() {
+  return (
+    <p>Hi!</p>
+    //both html and js here
+    //here write UI and logic both
+  );
+}
+
+//components are generally functions only. They are called components because they contain both html and js
+```
+Types of functional components:
+
+# Type 1:
+```
+function Componentname() {  
+    //JS code will be here. We will be not making a separate file for js
+
+  return{
+    //HTML Code
+  }
+}
+
+//so when we call a component, we expect to get html from it
+```
+- Ex:
+```
+function App() {
+  return (
+    <p>Hello</p>
+  );
+}
+
+//So when we call the above App component, we expect to get the html code("Hello")
+as output
+
+
+//In 
+```
