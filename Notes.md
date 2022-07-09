@@ -332,3 +332,7 @@ Difference Between Margin and padding:
 //In this case the tags inside navbar_container will be shifted towards right
 ```
 ../../ :- out of one folder, then again out of another folder
+
+
+display:flex enables the flex property. After that only you can use other flex 
+properties like flex-direction, justtify-content,etc
