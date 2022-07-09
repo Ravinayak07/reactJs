@@ -281,3 +281,53 @@ as output
 
 //In 
 ```
+after creating any react project, do clean up  process:
+- Clean up process: delete app.test.js, logo.svg, setuptest.js. delete app.js html code and app.css code, index.css
+
+- React by default adds some margin. To remove it add this code in App.css:
+```
+body {
+  margin: 0;
+}
+```
+
+"./" matlab aju baju dekho
+"../" matlab ek folder bahar jaake dekho
+
+
+- when js varibale is used inside html, its wriiten inside curly braces {}:
+```
+function Navbar(){
+    
+    //js code
+
+    var name = "<RSN />";
+
+    return(
+        <div className="navbar_container">
+            <div className="navbar_left">
+              {name}
+            </div>
+            <div className="navabr_right">
+
+            </div>
+        </div>
+    )
+}
+```
+
+Difference Between Margin and padding:
+- padding inside the boundary whereas margin is outside the bounday
+- Ex:
+```
+.navbar_container {
+   margin-left: 25px:
+} 
+//In this case whole navbar will be shifted towards right
+
+
+.navbar_container {
+   padding-left: 25px:
+} 
+//In this case the tags inside navbar_container will be shifted towards right
+```

@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar'; //or Navbar.js
 
+//Components to be made:
+// 1.Navbar
+// 2.About
+// 3.tech Stacks
+// 4.Experience
+// 5.Projects
+//Components name should start with capital letter
+
+//we will make separate folder for components inside src folder
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar /> 
     </div>
   );
 }
+
+//All components are imported and called in App.js and App.js is imported and called in
+//index.js. so you can say that All components inside index.js
 
 export default App;
