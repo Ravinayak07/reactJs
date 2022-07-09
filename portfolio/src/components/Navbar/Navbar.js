@@ -30,7 +30,7 @@ function Navbar(){
     )
 }
 
-export default Navbar; //exporting
+export default Navbar; //exporting so that we can import it from App.js
 
 /*
 Now will this code run? : No becoz we haven't called the functional component.

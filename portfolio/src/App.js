@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar'; //or Navbar.js
+import About from './components/About/About';
 
 //Components to be made:
 // 1.Navbar
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Navbar /> 
+      <About />
     </div>
   );
 }

@@ -331,3 +331,4 @@ Difference Between Margin and padding:
 } 
 //In this case the tags inside navbar_container will be shifted towards right
 ```
+../../ :- out of one folder, then again out of another folder
