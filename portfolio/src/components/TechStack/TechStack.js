@@ -67,25 +67,29 @@ function TechStack() {
       iconName: "Bootstrap",
     },
   ];
+
+  function showIcon(value) {
+    return (
+      <div className="techstack_image_element_container">
+           <img src={value.iconImage} alt={value.iconAltProperty} />
+           <p>{value.iconName}</p>
+      </div>
+    )
+  }
   return (
+
     <div className="techstack_container">
       <p className="techstack_title">Tech Stack</p>
       <div className="techstack_image_rows_container">
         <div className="techstack_image_row1_container">
           {techstackData.map((value, key) => (
-            <div className="techstack_image_element_container">
-              <img src={value.iconImage} alt={value.iconAltProperty} />
-              <p>{value.iconName}</p>
-            </div>
+             showIcon(value)
           ))}
         </div>
 
         <div className="techstack_image_row1_container">
           {techstackData2.map((value, key) => (
-            <div className="techstack_image_element_container">
-              <img src={value.iconImage} alt={value.iconAltProperty} />
-              <p>{value.iconName}</p>
-            </div>
+              showIcon(value)
           ))}
         </div>
       </div>
