@@ -10,6 +10,7 @@ import css from "../../images/techStack/css.png";
 import python from "../../images/techStack/python.png";
 import cpp from "../../images/techStack/cpp.png";
 import bootstrap from "../../images/techStack/bootstrap.png";
+import TechStackIcon from "./TechStackIcon/TechStackIcon.js";
 
 function TechStack() {
   const techstackData = [
@@ -81,15 +82,20 @@ function TechStack() {
     <div className="techstack_container">
       <p className="techstack_title">Tech Stack</p>
       <div className="techstack_image_rows_container">
+
+        {/* Using function */}
         <div className="techstack_image_row1_container">
           {techstackData.map((value, key) => (
              showIcon(value)
           ))}
         </div>
 
+
+           {/* Using Functional Component */}
         <div className="techstack_image_row1_container">
           {techstackData2.map((value, key) => (
-              showIcon(value)
+            //   showIcon(value)
+            <TechStackIcon data={value} />
           ))}
         </div>
       </div>
