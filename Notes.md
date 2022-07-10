@@ -336,3 +336,297 @@ Difference Between Margin and padding:
 
 display:flex enables the flex property. After that only you can use other flex 
 properties like flex-direction, justtify-content,etc
+
+
+objects and map functions in javascript
+
+
+OBJECTS: objects are key value pairs
+```
+const a = {
+  name: "Ravi",
+  surname: "Nayak",
+  age: 10,
+}
+```
+console.log(a.name+" "+a.surname+" "+a.age);  //Ravi
+
+- In js, a fun with no name is called anonymous fun and it is totally valid.
+```
+//normal  function
+const funname = () => {   
+  console.log("Ravi");
+  return;
+}
+
+//Anonymous fun
+() => {   
+  console.log("Ravi");
+  return;
+}
+
+//but anonymous fun cannot be called as it has no existance. So where it is used then ???
+//These are used inside the map function where it is definded and called simultaneously.ex:
+
+const arr = [1,2,3,4,5];
+arr.map(()=>(
+
+))
+
+```
+MAP FUNCTIONS:
+- map is a method which has a arrow(anonymous) fun inside it
+- fun inside map fun bydefault takes two arguments out of which 1 is compulsory i.e value
+- And key is optional
+- mapping an array in javascript means to access each element of array one by one
+- In js map is same as for loop
+```
+
+const arr = [1,2,3,4,5];
+arr.map( (value, key) => (
+     console.log(value);
+))
+
+OUTPUT:
+1
+2
+3
+4
+5
+
+//value word can be changed but the keyword "key" cannot be changed:
+const arr = [1,2,3,4,5];
+arr.map( (abc, key) =>(    //val, item,etc
+
+))
+```
+- We can make objects as the elements of an array
+
+
+
+
+
+```
+
+import React from "react";
+import "./TechStack.css";
+import react from "../../images/techStack/react.png";
+import vuejs from "../../images/techStack/vuejs.png";
+import js from "../../images/techStack/js.png";
+import nodejs from "../../images/techStack/nodejs.png";
+import firebase from "../../images/techStack/firebase.png";
+import html from "../../images/techStack/html.png";
+import css from "../../images/techStack/css.png";
+import python from "../../images/techStack/python.png";
+import cpp from "../../images/techStack/cpp.png";
+import bootstrap from "../../images/techStack/bootstrap.png";
+
+function TechStack() {
+
+    const techstackData = [
+        {
+            iconImage: react,
+            iconAltproperty: "reactImage",
+            iconName: 'React'
+        },
+        {
+            iconImage: vuejs,
+            iconAltproperty: "vueJsImage",
+            iconName: 'VueJs'
+        },
+        {
+            iconImage: js,
+            iconAltproperty: "jsImage",
+            iconName: 'JS'
+        },
+        {
+            iconImage: nodejs,
+            iconAltproperty: "NodeJsImage",
+            iconName: 'NodeJs'
+        },
+        {
+            iconImage: firebase,
+            iconAltproperty: "firebaseImage",
+            iconName: 'Firebase'
+        }
+
+
+    ]
+    return(
+     <div className="techstack_container">
+        <p className="techstack_title">Tech Stack</p>
+        <div className="techstack_image_rows_container">
+                <div className="techstack_image_row1_container">
+
+                    <div className="techstack_image_element_container">
+                        <img src={react} alt="react image" />
+                        <p>React</p>
+                    </div>
+
+                    <div className="techstack_image_element_container">
+                        <img src={vuejs} alt="react image" />
+                        <p>Vue</p>
+                    </div>
+
+                    <div className="techstack_image_element_container">
+                        <img src={js} alt="react image" />
+                        <p>Javascript</p>
+                    </div>
+
+                    <div className="techstack_image_element_container">
+                        <img src={nodejs} alt="react image" />
+                        <p>NodeJs</p>
+                    </div>
+                    
+                    <div className="techstack_image_element_container">
+                        <img src={firebase} alt="react image" />
+                        <p>Firebase</p>
+                    </div>
+                    
+                   
+                </div>
+       
+                <div className="techstack_image_row1_container">
+                    <div className="techstack_image_element_container">
+                        <img src={cpp} alt="react image" />
+                        <p>Cpp</p>
+                    </div>
+                    <div className="techstack_image_element_container">
+                        <img src={html} alt="react image" />
+                        <p>HTML</p>
+                    </div>
+                    <div className="techstack_image_element_container">
+                        <img src={css} alt="react image" />
+                        <p>CSS</p>
+                    </div>
+                    <div className="techstack_image_element_container">
+                        <img src={python} alt="react image" />
+                        <p>Python</p>
+                    </div>
+                    <div className="techstack_image_element_container">
+                        <img src={bootstrap} alt="react image" />
+                        <p>bootstrap</p>
+                    </div>
+                    
+                   
+                </div>
+
+              
+
+            </div>
+
+            <div>
+
+            </div>
+
+        </div>
+
+    );
+}
+
+export default TechStack;
+
+```
+
+
+```
+
+import React from "react";
+import "./TechStack.css";
+import react from "../../images/techStack/react.png";
+import vuejs from "../../images/techStack/vuejs.png";
+import js from "../../images/techStack/js.png";
+import nodejs from "../../images/techStack/nodejs.png";
+import firebase from "../../images/techStack/firebase.png";
+import html from "../../images/techStack/html.png";
+import css from "../../images/techStack/css.png";
+import python from "../../images/techStack/python.png";
+import cpp from "../../images/techStack/cpp.png";
+import bootstrap from "../../images/techStack/bootstrap.png";
+
+function TechStack() {
+  const techstackData = [
+    {
+      iconImage: react,
+      iconAltproperty: "reactImage",
+      iconName: "React",
+    },
+    {
+      iconImage: vuejs,
+      iconAltproperty: "vueJsImage",
+      iconName: "VueJs",
+    },
+    {
+      iconImage: js,
+      iconAltproperty: "jsImage",
+      iconName: "JS",
+    },
+    {
+      iconImage: nodejs,
+      iconAltproperty: "NodeJsImage",
+      iconName: "NodeJs",
+    },
+    {
+      iconImage: firebase,
+      iconAltproperty: "firebaseImage",
+      iconName: "Firebase",
+    },
+  ];
+
+  const techstackData2 = [
+    {
+      iconImage: cpp,
+      iconAltProperty: "cppImage",
+      iconName: "CPP",
+    },
+    {
+      iconImage: html,
+      iconAltProperty: "htmlImage",
+      iconName: "HTML",
+    },
+    {
+      iconImage: css,
+      iconAltProperty: "cssImage",
+      iconName: "CSS",
+    },
+    {
+      iconImage: python,
+      iconAltProperty: "pythonImage",
+      iconName: "Python",
+    },
+    {
+      iconImage: bootstrap,
+      iconAltProperty: "bootstrapImage",
+      iconName: "Bootstrap",
+    },
+  ];
+  return (
+    <div className="techstack_container">
+      <p className="techstack_title">Tech Stack</p>
+      <div className="techstack_image_rows_container">
+        <div className="techstack_image_row1_container">
+          {techstackData.map((value, key) => (
+            <div className="techstack_image_element_container">
+              <img src={value.iconImage} alt={value.iconAltProperty} />
+              <p>{value.iconName}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="techstack_image_row1_container">
+          {techstackData2.map((value, key) => (
+            <div className="techstack_image_element_container">
+              <img src={value.iconImage} alt={value.iconAltProperty} />
+              <p>{value.iconName}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default TechStack;
+
+
+```

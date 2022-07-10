@@ -12,71 +12,85 @@ import cpp from "../../images/techStack/cpp.png";
 import bootstrap from "../../images/techStack/bootstrap.png";
 
 function TechStack() {
-    return(
-     <div className="techstack_container">
-        <p className="techstack_title">Tech Stack</p>
-        <div className="techstack_image_rows_container">
-                <div className="techstack_image_row1_container">
-                    <div className="techstack_image_element_container">
-                        <img src={react} alt="react image" />
-                        <p>React</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={vuejs} alt="react image" />
-                        <p>Vue</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={js} alt="react image" />
-                        <p>Javascript</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={nodejs} alt="react image" />
-                        <p>NodeJs</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={firebase} alt="react image" />
-                        <p>Firebase</p>
-                    </div>
-                    
-                   
-                </div>
-       
-                <div className="techstack_image_row1_container">
-                    <div className="techstack_image_element_container">
-                        <img src={cpp} alt="react image" />
-                        <p>Cpp</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={html} alt="react image" />
-                        <p>HTML</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={css} alt="react image" />
-                        <p>CSS</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={python} alt="react image" />
-                        <p>Python</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={bootstrap} alt="react image" />
-                        <p>bootstrap</p>
-                    </div>
-                    
-                   
-                </div>
+  const techstackData = [
+    {
+      iconImage: react,
+      iconAltproperty: "reactImage",
+      iconName: "React",
+    },
+    {
+      iconImage: vuejs,
+      iconAltproperty: "vueJsImage",
+      iconName: "VueJs",
+    },
+    {
+      iconImage: js,
+      iconAltproperty: "jsImage",
+      iconName: "JS",
+    },
+    {
+      iconImage: nodejs,
+      iconAltproperty: "NodeJsImage",
+      iconName: "NodeJs",
+    },
+    {
+      iconImage: firebase,
+      iconAltproperty: "firebaseImage",
+      iconName: "Firebase",
+    },
+  ];
 
-              
-
+  const techstackData2 = [
+    {
+      iconImage: cpp,
+      iconAltProperty: "cppImage",
+      iconName: "CPP",
+    },
+    {
+      iconImage: html,
+      iconAltProperty: "htmlImage",
+      iconName: "HTML",
+    },
+    {
+      iconImage: css,
+      iconAltProperty: "cssImage",
+      iconName: "CSS",
+    },
+    {
+      iconImage: python,
+      iconAltProperty: "pythonImage",
+      iconName: "Python",
+    },
+    {
+      iconImage: bootstrap,
+      iconAltProperty: "bootstrapImage",
+      iconName: "Bootstrap",
+    },
+  ];
+  return (
+    <div className="techstack_container">
+      <p className="techstack_title">Tech Stack</p>
+      <div className="techstack_image_rows_container">
+        <div className="techstack_image_row1_container">
+          {techstackData.map((value, key) => (
+            <div className="techstack_image_element_container">
+              <img src={value.iconImage} alt={value.iconAltProperty} />
+              <p>{value.iconName}</p>
             </div>
-
-            <div>
-
-            </div>
-
+          ))}
         </div>
 
-    );
+        <div className="techstack_image_row1_container">
+          {techstackData2.map((value, key) => (
+            <div className="techstack_image_element_container">
+              <img src={value.iconImage} alt={value.iconAltProperty} />
+              <p>{value.iconName}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default TechStack;
