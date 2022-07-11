@@ -7,16 +7,16 @@ function About() {
     <div className="about_container">
       <p className="about_text1"><span className="highlighted_text">Hi</span> my name is</p>
       <p className="about_text2">Ravi Shankar Nayak</p>
-      <p className="about_text3">I am SDE at <span className="highlighted_text">Somewhere</span></p>
+      <p className="about_text3">I am a <span className="highlighted_text">Front-End </span>Developer</p>
       <p className="about_description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-        voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-        fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-        accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
-        molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
-        officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum
-        nesciunt ipsum debitis quas aliquid.
+        I am Currently an Undergraduate Computer Science Student from 
+        <span className="highlighted_text"> Lovely Professional University</span>.
+        <br />
+        <br />
+        I Love making <span className="highlighted_text">Frond-End </span>Web Development Projects
+        <br />
+        <br />
+        I am an <span className="highlighted_text">Cloud</span> Enthusiast and also Love contributing to <span className="highlighted_text">open source</span> Projects
       </p>
       <div>
         <a href="https://github.com/Ravinayak07" target="_blank">

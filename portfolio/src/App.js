@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar'; //or Navbar.js
 import About from './components/About/About';
 import TechStack from './components/TechStack/TechStack';
 import Experience from './components/Experience/Experience';
+import Project from './components/Projects/Project';
 
 //Components to be made:
 // 1.Navbar
@@ -20,6 +21,7 @@ function App() {
       <About />
       <TechStack />
       <Experience />
+      <Project />
     </div>
   );
 }
