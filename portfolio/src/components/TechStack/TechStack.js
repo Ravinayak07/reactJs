@@ -83,6 +83,14 @@ function TechStack() {
       <p className="techstack_title">Tech Stack</p>
       <div className="techstack_image_rows_container">
 
+        {/* TWO METHODS:
+         1. make a fun and return html from it 
+        showIcon(value)
+        2. create a component and pass props to make it work acc to our needs
+        <TechStackIcon data={value} />
+         */}
+
+         
         {/* Using function */}
         <div className="techstack_image_row1_container">
           {techstackData.map((value, key) => (
