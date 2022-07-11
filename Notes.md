@@ -734,3 +734,162 @@ function TechStack() {
 export default TechStack;
 
 ```
+
+
+# FORMS:
+- we should not change the values of a variables frequently.
+- For that we have State variables in react.
+- state are the variables which can abe available anywhere in the componenet. they dont have any scope like const, var and let.  Globally available in the entire component. they are acessible anywhere in the componenet
+- U state is a hook which react gives
+- A hook is something that react gives which makes our life easier.
+- using hooks we can do many advanced things that are normally not possible through js
+- So hooks are some additional tools which helps us to use react better
+- how to create usestate varibale = syntax of usestate
+```
+const [variableName, setvaribaleName] = usestate(initialValue)
+
+//let or var can also be used
+//varibleName is the name of the variable : 1st parameter
+//setvariableName is a fun   : 2nd parameter
+//usestate(initialValue) is the calling the usestate fun which we imported in the 1st line to assign and we
+provide the initialvalue of name varianle
+ex:- 
+let name = "Ravi";
+const [name, setname] = usestate("Ravi");  //assign "Ravi" as a initialValue to the variable name
+
+both are same
+```
+line 9 and 10 are exactly same
+- BTS of setName
+- whenever we press any key, that is an event
+- dot is applied to access values from objects
+- e.target.value:- to print the value inside target object iniside e object. 
+
+- what ever we are writing in the input feild, we are storing in as event and then displaying it simultaneously above the name feild
+
+- const [name, setname] = usestate(""); //initial value is empty because we don't know what the user going to submit
+
+## API(Application Programming Interface)
+- used to bring data from the database to frontend to show the end users
+```
+Analogy:
+1. Frontend = You(customer in a restuarant)
+2. API taking request = Waiter taking order
+3. Backend/database = Kitchen
+```
+- API works in two ways:
+- 1) Request : From Frontend to Backend
+- 2) Response : From Backend to Frontend. It has two cases: Happy Case and error case. Happy case is the case when it successfully send the response to the request from Frontend. Error case is the case when it fails to send
+- API Consists of two parts:
+- 1) Header
+- 2) Body
+
+### API Header:
+- We we request api in a database, it can be of 4 types:
+- Or there can be 4 types of operations in the database
+- Read, Add, Delete, Update
+- We read data through fetch
+- Also called as CRUD: (create, read, update and delete)
+
+# Diff between Signup and login
+- Signup = Register = first time = when user doesnot exit in the database = So CREATE operation
+- Login = When user exists =  READ operation ( as the login password alreday thetre in the database)
+- Change password = UPDATE
+- Remove Account =  DELETE
+
+### API Header: 
+- It tells the database that what type of API, it is sending. For which operation among CRUD.
+- So header contains the CRUD to tell the DB that what type of operation it expects
+- For example: for signup the header takes the CREATE to the db
+
+## API METHODS
+
+- POST request = Create : if API takes POST request in header that means to create in DB
+- GET request = Read  
+- PUT  request = Update 
+- DELETE request = Delete  
+
+- these are not only 4 methods of API, there are many methods buy these are the most used
+
+## API Body:
+- contains the data/details of the API request that need to be sent to the backend
+- for example i want to add a phone of rs 75,000 in my website. So first i need to send create request to the db.
+- So the API header will contain the POST type reqeuest and body will contain the data of the phone. So the body will contain the following data:
+```
+Name: iphone 13
+price; 75,000
+
+///database is nothing but key value pairs. In above data, Name and price are the keys while iphone and 75000 are the values
+In database , it gets stored as:
+{
+  name: iphone13
+  price: 750000
+}
+```
+
+# Endpoints:
+- This is the url where request has to be made so that we can receive the data
+- For example: we if request on this url(https://jsonplaceholder.typicode.com/todos), we will receive some data
+
+
+# API calling Methods:
+- 1)fetch  
+- 2)Axios
+
+## fetch :
+- fetch bydefault sends GET request
+- fetch gives us javascript
+- fetch is a function which takes url as a paramter. The url must be the endpoint from where we are going to fetch data
+
+- js runs from top down approach and in synchrounous manner(i.e it completes one statement and then goes to another very fastly.) So when u make a fetch api and if the api is taking time to give back response, then javascript will not wait for it.it will move to the next statement. To prevent this , we use .then:
+```
+    const endpoint  = "https://jsonplaceholder.typicode.com/todos";
+
+    //GET
+    fetch(endpoint)
+    .then()          
+    
+//.then() will execute only after fully receiving the response from the api. That means it stops the further execution of js till the api is fully fetched
+
+
+// This is done so that we will proceed to the next statement only after receiving the complete response from the api request
+```
+- After completly receiving the response, we convert into json(i.e in the form of objects) because we can't read the response. So we convert into json format
+```
+
+    //GET
+    fetch(endpoint)
+    .then(response => response.json())
+```
+- This also take some time. So we will use .then() here also
+```
+
+    //GET
+    fetch(endpoint)
+    .then(response => response.json())
+```
+- Now console the json data
+```
+    //GET
+
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(data => console.log(data))
+
+    //data is a variable here which will store the json formatter api response
+    //you can use any variable name
+
+    //this will print all the entire data in the console as array of objects
+```
+- If want to print the title of first object only:
+```
+   fetch(endpoint)
+    .then(response => response.json())
+    .then(data => console.log(data[0].title))
+
+```
+# Tip:
+- if you want to see which api is being called and what data is received, then
+- inspect -> fetchXhr ->refresh the page -> you will see the name of the api(ex todos) ->click on todos -> click on headers -> you will the details(request method, Url,etc)
+- in preview : shows all the data
+- Try this with any website like flipkart
