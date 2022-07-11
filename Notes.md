@@ -893,3 +893,152 @@ In database , it gets stored as:
 - inspect -> fetchXhr ->refresh the page -> you will see the name of the api(ex todos) ->click on todos -> click on headers -> you will the details(request method, Url,etc)
 - in preview : shows all the data
 - Try this with any website like flipkart
+
+We always have two senarios in an API:
+1) happy case(Api is fullfilled)
+2) Error case(Api is rejected) :what if fetch(endpoint) fails due to some reasons?
+- In that case we catch the error
+```
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+
+    //if there is error in fetch(endpoint), then response and data will not run, it will directly come to catch the error
+    //if there is error in resopnse, then data will not run, it will directly come to catch the error
+```
+```
+    fetch(endpoint)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log("Please try another Api"))
+```
+## NOTE:
+- when a website gets load, api is called two times. first time before the webiste starts laoding so that the users dont have wait to see the UI until the 2nd api finishes. these two api calls happens so fast that we as users not able to distinguish it but if you see the console, you will find that there has been two api calls.
+- In our project also , the component is making two api calls. To prevent this, we will use one of the hooks: useEffect
+
+## HOOKS:
+
+1. useState: manages state variable through componenet
+2. useEffect:
+- It runs when a component loads/refresh
+- It runs before the component gets loaded
+- It tells that this component must be rendered once
+- imported: import {useEffect} from "react";
+- It takes two parameters: 1st parameter is an arrow function while 2nd parameter is a array
+- Now weed need to pass the fetch inside the arrow function
+```
+    const endpoint  = "https://jsonplaceholder.typicode.com/todos";
+
+    useEffect(()=>{
+        fetch(endpoint)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+    }, []);
+
+
+
+    //this means before this component loads, all the things inside useEffect gets load.
+    After this only ,the code below it will load
+```
+- Now the paramter two(array) tells the parameter one how many times it should run at the time of rendering.If param two is an empty array, then param 1 will run only 1 time. If the array has any variable, then every time the variable changes, param2 runs
+
+- For ex: we provide a input feild in the html and store it inside a name varibale and pass this name varibale inisde the empty array, then when ever we type the name in the input feild i.e for every elemnt we type, param2 of useEffect gets called
+
+- So in this case, useEffect will run : 1(bydefault irrespective of param2 is empty array or not ) + x(x=times the name variable is changes)
+- If type "Ravi" in the input feild, then
+useEffect will run: 1+4 =5 times
+
+
+```
+import React, {useEffect} from "react";
+import "./Apicalling.css";
+
+function Apicalling() {
+
+    const endpoint  = "https://jsonplaceholder.typicode.com/todos";
+
+    
+    useEffect(()=>{
+        fetch(endpoint)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+    }, []);
+
+
+
+
+
+    // //GET
+    // fetch(endpoint)
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // //Error handling(edge case)
+    // .catch(error => console.log(error))
+    // //data is a variable here which will store the json formatter api response
+    // //data ,response , error are variable names. You canuse any variable name
+
+    return(
+       <div>
+        Apicalling
+       </div>
+    )
+}
+
+export default Apicalling;
+```
+
+```
+import React, {useEffect, useState} from "react";
+import "./Apicalling.css";
+
+function Apicalling() {
+
+    const endpoint  = "https://jsonplaceholder.typicode.com/todos";
+
+    const [name, setName] = useState("")
+
+    const callApi = () => {
+            fetch(endpoint)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
+
+    }
+
+    console.log(name);
+
+    useEffect(()=>{
+        callApi();
+        console.log("useEffect chala");
+    }, [name]);
+
+
+    // //GET
+    // fetch(endpoint)
+    // .then(response => response.json())
+    // .then(data => console.log(data))
+    // //Error handling(edge case)
+    // .catch(error => console.log(error))
+    // //data is a variable here which will store the json formatter api response
+    // //data ,response , error are variable names. You canuse any variable name
+
+    return(
+       <div>
+       <h1>Hello</h1>
+       <input value={name} onChange={e => setName(e.target.value)} />
+       </div>
+    )
+}
+
+export default Apicalling;
+```
+- Now if you totally remove the array paramter, then useEffectc will run the number of times you update any variable
+- matlab jitne bhi variables hain uss components, har variable ke update ke time useEffect chalega.
+
+So useEffect can be used in three ways:
+1. empty depedencies array : runs only once at the time of render
+2. dependency array with variable : runs the number of times the variable changes
+3. remove the dependency array parameter:  runs the number of times any variable in the component changes
