@@ -1123,3 +1123,105 @@ apiData = [
         ))}
       )
 ```
+
+## NAVIGATION
+- Navigation of pages can be seen in the address tab
+- Navigating from one page to another page is called routing
+- In react routing is done with a prebuilt pacakge called react-router-dom. From this function , we will get useNavigate fun which helps in navigation
+- How to install it:
+```
+//Run this in the terminal(in your project directory)
+
+npm i react-router-dom
+
+or
+
+npm install react-router-dom
+```
+- now how to check whether it is installed or not:
+- open package.json, you will find its key value pair(like  "react-router-dom": "^6.3.0") in the first object
+
+- Now import this in App.js
+```
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+```
+- BrowserRouter enables the properties of routing.
+- To do this, we wrap the entire component with BrowserRouter so that we can use the functionalities of Browserrouter in our components
+```
+function App() {
+  return (
+    <BrowserRouter>
+    <div className='App'>
+       {/* <Apicalling /> */}
+        <Home />
+        <AboutMe />
+    </div>
+    </BrowserRouter>
+    
+  );
+}
+
+//- This means that we can use all the functionalties that browserRouter provides , within it. No outside out it because its scope ends there(line 1158)
+```
+- Now Route is a components which asks for the path at whcih you want to call a particular component. And Route should be wrapped inside Routes. Inside Routes, only Route should be present, no components
+```
+<Routes>
+   <Route path="/about-me" element={<AboutMe />} />
+</Routes>
+
+//it tells that when you open "/about-me" path in the url, the <AboutMe /> component should be called.
+//In previous version component was used insted of element like component={<AboutMe />}
+```
+- full Code:
+```
+
+function App() {
+  return (
+    <BrowserRouter>
+    <div className='App'>
+       {/* <Apicalling /> */}
+        <Home />
+        <Routes>
+          <Route path="/about-me" element={<AboutMe />} />
+        <Routes>
+        <AboutMe />
+    </div>
+    </BrowserRouter>
+    
+  );
+}
+
+```
+- To change url, we use useNavigate fun which is imported from react
+```
+import React from "react";
+import "./Home.css";
+import {useNavigate} from "react-router-dom";
+
+function Home() {
+
+    //first create a variable and store the useNavigate fun in it
+    const navigate = useNavigate();
+
+    const goToAboutPage = ()=>{
+        //call the variable inside the function
+      navigate("/about-me")
+        
+    }
+    return(
+        <div className="home_container">
+            //on clicking this button. call goToAboutPage function
+            <button onClick={goToAboutPage}>Go to About Me Page</button>
+            <button>Go to Contact Us Page</button>
+            <button>Go to Orders Page</button>
+            <button>Go to MobilesPage</button>
+        </div>
+    )
+}
+export default Home;
+
+```
+- Its a two step process:
+1. onlcick says to navigate to which page
+2. Then App.js calls the respective component of that page 
+- In react every thing should be wrapped inside one tag in the return function
