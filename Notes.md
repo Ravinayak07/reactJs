@@ -1042,3 +1042,84 @@ So useEffect can be used in three ways:
 1. empty depedencies array : runs only once at the time of render
 2. dependency array with variable : runs the number of times the variable changes
 3. remove the dependency array parameter:  runs the number of times any variable in the component changes
+
+- Dependency arrays are those arrays which kepps tracks of the varibales that are passed into it. Every time the variable changes, useEffect runs 
+
+
+- What is the advantage of using react?
+- Resuable components
+
+- what is props reading?
+- passing properties from one component and raeding them in another
+
+What type of projects we should make in react?
+- 1) clone: like Amazon, netflix clone. But all are doing the same. max students just copy pasting from github. So if you are making clone, add some unique features like chat box
+- 2) make your portfolio website more good
+- 3)  make linked clone and change the style it will look like a social media app
+- 4) Spilt wise app
+
+Best way to apply for offcampus:
+- Linkedin
+- telegram grp were vacancies are created. From that grp find their members in linkedin and tell them for referrals. Don't apply directly on career portal without referral
+
+```
+fetch(endpoint)
+.then(response => response.json()) //scope of response variable is only inside this parenthesis.
+.then(data => console.log(data))   //same with data variable
+.catch(error => console.log(error))
+
+//response and scope can't be used outside these parenthesis
+```
+- Now to map the data variable, we need to access it outside the parentheses. To  do that, we will use state variables. Ex:- 
+```
+
+   const endpoint  = "https://jsonplaceholder.typicode.com/todos";
+
+    const [name, setName] = useState("")
+    const [surname, setsurName] = useState("")
+
+    //to accesss the data variable outside its scope
+    const [apiData, setapiData] = useState(null)
+
+    const callApi = () => {
+            fetch(endpoint)
+            .then(response => response.json())
+            .then(data => setapiData(data))  //passing data to apiData through setapiData fun
+            .catch(error => console.log(error))
+
+    }
+
+
+//Now apiData can be used anywhere in the component irrespective of any scope
+```
+- now apiData will ba an array of objects. Whatever data is received from api, apiData will store it as an array of objects like:
+```
+
+apiData = [
+  {
+
+  },
+  {
+
+  },
+  {
+
+  },
+]
+```
+- Now using the it in the html (i.e in the return function)
+```
+    return(
+       <div>
+        {apiData.map((value,key)=>(
+            <>
+            <p>{value.title}</p>
+            <img src={value.image} />
+            <p>Category: {value.category}</p>
+            <p>Rs. {value.price}</p>
+            <p>Rating. {value.rating.rate} </p>
+            <p></p>
+            </>
+        ))}
+      )
+```

@@ -3,15 +3,18 @@ import "./Apicalling.css";
 
 function Apicalling() {
 
-    const endpoint  = "https://jsonplaceholder.typicode.com/todos";
+    const endpoint  = "https://fakestoreapi.com/products";
 
     const [name, setName] = useState("")
     const [surname, setsurName] = useState("")
 
+    //to accesss the data variable outside its scope
+    const [apiData, setapiData] = useState(null)
+
     const callApi = () => {
             fetch(endpoint)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => setapiData(data))  //passing data to apiData through setapiData fun
             .catch(error => console.log(error))
 
     }
@@ -34,7 +37,17 @@ function Apicalling() {
     // //data ,response , error are variable names. You canuse any variable name
 
     return(
-       <div>
+       <div className="apicalling_container">
+        {apiData.map((value,key)=>(
+            <div className="apidata_container">
+            <p>{value.title}</p>
+            <img src={value.image} />
+            <p>Category: {value.category}</p>
+            <p>Rs. {value.price}</p>
+            <p>Rating. {value.rating.rate} </p>
+            <p></p>
+            </div>
+        ))}
        <h1>Hello</h1>
        <label>Name</label>
        <input value={name} onChange={e => setName(e.target.value)} />
