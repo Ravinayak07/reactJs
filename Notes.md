@@ -1,11 +1,11 @@
 ## INTRODUCTION
 - React is a javascrit library which is oftenly referred as a framework.
 - Helps to create SPA(single page applications). These are those applications which doesnot load when u move from one page to another.
-- In react, JSX is used which stands for javascrit syntax extension.
+- In react, JSX is used which stands for javascript syntax extension.
 
 ## REQUIREMENTS FOR CREATING REACT A
 - A) node.js
-- B) npm
+- B) npm : node package manager
 
 ## CHECK THESE COMMANDS BEFORE CREATING REACTAPP:
 ```
@@ -16,37 +16,24 @@ C:\Users\ASUS>npx --version
 7.19.0
 
 C:\Users\ASUS>node --version
-v14.17.6
+v16.16.0
 
 //checked in both powershell and cmd
 ```
 - nodejs helps in running the javascrit outside the web browser in your computer. Before nodejs was released, js could only be run in the webbrowser.
-- npm is a package manager. It is same as pep in python.It helps in installing the packages(i.e the code written by someone else) to your computer.
+- npm is a package manager. It is same as pep in python.It helps in installing the packages(i.e the code written by someone else) to your computer. It gives us prefedined and prebuilt packages to use
 - npm downloads the packages to your computer 
 - But if u dont want to download the packages, u can use npx which only uses the packages and doesnot downloads it
 
-### STEPS TO CREATE REACT APP:
-- Go to the folder where u want to create the react App.
-- shift+right click > open windows powershell here
-- run this command= npx create-react-app my-app
-- After succesfully creating react app, open terminal of vs code and run: npm start
-- Your create App will be displayed on our Local browser(http://localhost:3000)
-- In the termninal, there will another link (On Your Network:  http://192.168.112.117:3000 ). You can view the react app on your phone using this link.
+## STEPS TO CREATE REACT APP:
+- Go to the folder innside which u want to create the react App.
+- shift+right click > open windows powershell here  OR open CMD.
+- Run the any of the following two commands:
 
-
-## INCLUDE BOOTSTRAP IN REACT:
-- Open boostrap website and go to the [starter template](https://getbootstrap.com/docs/5.2/getting-started/rtl/#starter-template)
-- Add the option 1 script tag in after the body section of index.html of the react project
-- Also copy the boostrap css link of the starter template and paste before the title tag of index.html of the react project.
-### COMPONENTS:
-- In react, you can make class based components or function based components.
-
-1st method
-npm install create-react-app basicapp
-
-npm > stands for node package manager. Gives us prefedined and prebuilt packages to use
-name can no longer contain capital letters
-with this command "npm install create-react-app basicapp" i got this error
+### NOW THERE ARE TWO CAMMANDS TO CREATE REACT APP:
+Command 1: **npm install create-react-app app-name**
+- app-name should not contain capital letters
+- Sometimes with this command you may get error like:
 ```
 PS C:\Users\ASUS\Documents\Ravi\My_Notes\ON GITHUB\ReactJS> npm install create-react-app basicapp
 npm ERR! code E404
@@ -61,27 +48,38 @@ npm ERR! 404 tarball, folder, http url, or git url.
 npm ERR! A complete log of this run can be found in:
 npm ERR!     C:\Users\ASUS\AppData\Local\npm-cache\_logs\2022-07-07T07_25_50_682Z-debug.log
 ```
-but with this command "npx create-react-app basicapp", it worked. Find out why. One reason may be that your npm must be of the latest version and react must not have been updated for it.
-2nd method
-npx create-react-app basicapp
+- One of the reasons for the above may be that your npm must be of the latest version and react must not have been updated for it.
+- So solution: Either update the npm version(simply by reinstalling the latest version) or create the react app with the 2nd command:
 
-npx means npm install
+Command 2: **npx create-react-app app-name**
+- With this command above error will not occur
+- npx simply means "npm install"
+- So **npm install create-react-app app-name** and **npx create-react-app app-name** are same
+
+<br>
+
+- After succesfully creating react app, open terminal of vs code and run: **npm start**
+- Your React App will be displayed on our Local browser(http://localhost:3000)
+- In the termninal, there will another link (On Your Network:  http://192.168.112.117:3000 ). You can view the react app on your phone using this link.
 
 
+## HOW TO INCLUDE BOOTSTRAP IN REACT:
+- Open boostrap website and go to the [starter template](https://getbootstrap.com/docs/5.2/getting-started/rtl/#starter-template)
+- Copy option 1 script tag(i.e Bootstrap Bundle with Popper ) of the starter template and paste it in the bottom of the body section of index.html of your react project.
+- Also copy the boostrap css link of the starter template and paste before the title tag in the head section of index.html of the react project.
+
+## BREAKDOWN OF THE FILES OF YOUR REACT PROJECT:
 After successfully creating a react App, the folder contains
-1) README.md tells about the purpose of the project, what it is doing,etc
-2) package.json : contains the information of app like name of app, version of app, dependencies( the packages on which the app depends), scripts(npm start, build, etc run from here)
-3) package-lock.json : We can't change this. It is formed from package.json only
-4) .gitignore files : In this the files which we don't want to put on github like password files, keys , enviroment files
-5) Src->App.test.js : All the test files are written by react. so that if there is some changes/updation , then these test files lets us know. For ex: react had made some updation and thats why our project is not working. In that case, the test files tells what upadtion has been had and how can we manage it.
-So basically these test files are not needed that much. its better to remove them(App.test.js, setUp.test.js, etc).
-- test files are like test cases which checks whether your code is running well or not. So the developers of react made react along with test files so that if there is break in code, they can identify and rectify it. and when we create a react app, in the starting there will a react logo and text below. Since we don't need that, thats why we also don't need their test files/test cases.  it will unnecessarily increase the files
-6) src->App.js : component of react app 
-7) src->index.js: we import and call App.js here. So the main code is wriiten in App.js and it is called in index.js. The whole app.js fie is written inside index.js in a single line as <App />
-- React is a single page Application. You can understand this when u see that it actually has a single page only i.e only one index.html which is inside the public folder. Inside the file there is <div id="root"></div> which takes it to the index.js and from there it goes to display the content of app.js. So basically it is the index.html which runs on the browser. So the hierarchy is index.html -> index.js -> App.js -> other compenents
-```
-//index.html file
+- **README.md**: tells about the purpose of the project, what it is doing,etc
+- **package.json** : contains the information of app like name of app, version of app, dependencies(the packages on which the app depends), scripts(npm start, build, etc run from here), etc
+- **package-lock.json** : This file cannot be modified. It is formed from package.json only
+- **.gitignore** : In this, we add the files which we want the git to ignore.Those are basically the files which we don't want to put on github like password files, keys , enviroment files,etc
+- **src->App.js** : The main component of react app 
+- **src->index.js**: we import and call App.js here. So the main code is wriiten in App.js and it is called in index.js. The whole app.js fie is written inside index.js in a single line as <App />.
 
+- React is a single page Application. You can understand this when u see that it actually has a single page only i.e only one index.html which is inside the public folder. Inside the file there is <div id="root"></div> which takes it to the index.js and from there it goes to display the content of app.js. So basically it is the index.html which runs on the browser. So the hierarchy is index.html -> index.js -> App.js -> other compenents
+- **index.html** file:
+```
 
     <div id="root">
 
@@ -90,65 +88,69 @@ So basically these test files are not needed that much. its better to remove the
       -->
     </div>
 
-    //So basically you can say that the entire code is inside this <div> tag. Its the same way as in any simple html application where the entire content is inside <body> tag
+//So basically you can say that the entire code is inside this <div> tag. Its the same way as in any simple html application where the entire content is inside <body> tag
 ```
-In html we load css and javascript but in react we import them. Actually in react we import the css file only and we write both html and js combingly
+- In html we load css and javascript but in react we import them. Actually in react we import the css file only and we write both html and js combingly in the functional component.
 
+## CLEANUP PROCESS:
+- After creating a react app, there will be some files which are not required. So we delete them to reduce the total files size.
+- Those files are:
+- Src->App.test.js, setUpTest.js : All these test files are written by react. so that if there is some changes/updation in react, then these test files lets us know. For ex: react had made some updation and thats why our project is not working. In that case, the test files tells what upadtion has been had and how can we manage it.So basically these test files are not needed that much. its better to remove them(App.test.js, setUp.test.js, etc).
+- test files are like test cases which checks whether your code is running well or not. So the developers of react made react along with test files so that if there is break in code, they can identify and rectify it. and when we create a react app, in the starting there will a react logo and text below. Since we don't need that, thats why we also don't need their test files/test cases.It will unnecessarily increase the files
 
-
-now go to the project folder, and run:
-
-- npm start   : this will open your project at http://localhost:3000/
-
-
-Varibales in js
+# SOME CONCEPTS OF JAVASCRIPTS:
+variables in js
 - no need to specify the data type:
-- const a =10;
+- const a = 10;
 - variables can be declared in three types: const, var , let
 
-## const
+const
 - connot be modified or reinitialized
 
-## let:
-- can be changed but can't be reinitialsied
+let:
+- can be changed but can't be reinitialsied. For ex:
+```
 let b =30;
-b = 20;
-let b =40; //error
-
-## var:
-- can be used in any way
+b = 20;      //can be changed
+let b = 40;  //Error: becoz can;t be reinitialised
+```
+var:
+- can be used in any way(can be modified and reinitialised).Ex:
+```
 var name = "Ravi"
 name = "Sinu"
 
 var name = 10; //var can be reinitialised. now name has integer value
+```
+- **Strictness order**: const(most strict) > let > var(least strict)
 
-# strictness order:
-- const(most strict) > let > var(least strict)
-# Diff between let and var
-
-
-# Function in c++:
+## FUNCTIONS IN JS:
+- **Function in c++**:
+```
 int funname(){
   cout<<"ravi";
   return 0;
 }
-
-# Function in js:
-- Type 1:
 ```
-//function defination
+- **Function in js**:
+- There are two type of functions in js
+- Type 1: Normal Function
+```
+//function defination: in fun def also, data type not needed. In fact data type is not needed anywhere in JS 
 
-//in fun def also, data type not needed. In fact data type is not needed in JS 
+
 function funname() {  
   console.log("Ravi");
   return;
 }
+
+
 //function call
 funname();
 ```
 - Type 2: using Arrow operators
 ```
-const funname = () => {   //also called fat arrow fun or opeartor
+const funname = () => {   //also called fat arrow function or opeartor
   console.log("Ravi");
   return;
 }
@@ -156,35 +158,23 @@ const funname = () => {   //also called fat arrow fun or opeartor
 //function call
 funname();
 ```
-- Type 1 and Type 2 are exactly the same just different way of writing. There is no difference in functionalities
+- Type 1 and Type 2 are exactly the same. Its just different way of writing. There is no difference in functionalities
 
-
-//Global execution context
-:- Its is like a container. Whatever js code runs, that first enters into GEC which is 
-a container. There it is used as stack (push and pop). thats why GEC is also 
-called call stack.
-
-whenever you run a fun or any variable in javascript, two things happen:
-
-
+## Global execution context(GEC)
+- Its is like a container. Whatever js code runs, it first enters into GEC which is a container. There the code is alloted a memory and used as stack (push and pop). Thats why GEC is also called call stack.
+```
 function xyz() {
    cout<<"Ravi";
 }
 
 const a = b;
-
-- step 1: GEC : Create a container and reserves a memory for that fun or variable i.e for fun xyz and variable a
-- step 2: xyz ka code and a ka value is added to the  container created in step 1. step 2 will work when we use it. ex: fun call
-- ex: xyz();
-- for const, step 1 is variable declaration
-step 2 is assigning value
-
-Now when you run the fun:
-xyz();
-
-it will first go to GEC to check whether there is any container having code of xyz. If its there, it will say it to execute it
-
-
+```
+- Whenever you run a fun or any variable in javascript, two step-process happens:
+- **Step 1(GEC)**: Creates a container and reserves a memory for that fun or variable i.e (for fun xyz and variable a in the above ex)
+- **Step 2:** Now fun xyz and varibale a's value is added to the container created in the step 1. This step starts working when we use the variable or when the xyz fun gets called.
+- So for fun xyz, step 1 is function defination and step 2 is function call
+- for the varibale, step 1 is the variable declaration and step 2 is assigning value to it.
+- Now when you call the fun: xyz(); , it will first go to GEC to check whether there is any container having code of xyz. If its there, it will say it to execute i
 - Unlike c++, in js you can call fun before defining it
 - For ex:
 ```
@@ -194,7 +184,7 @@ function xyz(){
 
 }
 ```
-but it will not work in case of const. For const you have to define before using it
+- but it will not work in case of const. For const you have to define before using it
 ex:
 ```
 //Error
@@ -229,10 +219,92 @@ funname();
 ```
 - But in type 1, you can call before defining
 
+## Objects and map functions in javascript:
+OBJECTS: objects are key value pairs
+```
+const a = {
+  name: "Ravi",
+  surname: "Nayak",
+  age: 10,
+}
 
-- there are two types of components in react:
+
+console.log(a.name+" "+a.surname+" "+a.age);  //Ravi Nayak 10
+```
+- In js, a fun with no name is called anonymous fun and it is totally valid.
+```
+//normal  function (arrow function)
+const funname = () => {   
+  console.log("Ravi");
+  return;
+}
+
+//Anonymous fun(fun with no name)
+() => {   
+  console.log("Ravi");
+  return;
+}
+```
+- But anonymous fun cannot be called as it has no existance due to no name. So where it is used then ???
+- These are used inside the map function where it is definded and called simultaneously.ex:
+```
+const arr = [1,2,3,4,5];
+arr.map(()=>(
+
+))
+
+```
+MAP FUNCTIONS:
+- map is a method which has a arrow(anonymous) fun inside it
+- fun inside map fun bydefault takes two arguments out of which 1 is compulsory i.e value and 2nd one is key which is optional.
+- mapping an array in javascript means to access each element of array one by one
+- In js map is same as for loop
+- Ex:
+```
+const arr = [1,2,3,4,5];
+arr.map( (value, key) => (
+     console.log(value);
+))
+
+OUTPUT:
+1
+2
+3
+4
+5
+```
+- The value word can be changed with words like val,item or any other word of your choice but the keyword "key" cannot be changed:
+```
+const arr = [1,2,3,4,5];
+arr.map( (abc, key) =>(   
+       console.log(abc);
+))
+```
+- We can also make objects as the elements of an array. It will be called as array of objects. For Ex:
+```
+const arrOfObjects =[
+  {
+    name: "Ravi",
+    age: 21
+  },
+  {
+    name: "Sibu",
+    age: 22
+  },
+  {
+    name: "Liku",
+    age: 23
+  }
+]
+```
+
+
+
+## WHAT ARE COMPONENTS IN REACT:
+- In react, there are two types of components: **class based components** or **function based components**.
 - Component name should always start with capital letter
-1) Class components : not used anymore due to some limitations. Ex:
+1. **Class Components** : not used anymore due to some limitations. 
+- Syntax
 ```
 class ClassName extends React.Components {
       render() {
@@ -240,22 +312,29 @@ class ClassName extends React.Components {
       }
 }
 ```
-2) Functional Components. ex:
+- 
+2. **Functional Components** : 
+- Syntax
 ```
 
 function App() {
+
+  //js and logic is written here
+
   return (
     <p>Hi!</p>
-    //both html and js here
-    //here write UI and logic both
+
+    //HTML and UI is written here
+    
   );
 }
 
-//components are generally functions only. They are called components because they contain both html and js
 ```
-Types of functional components:
+- components are generally functions only. They are called components because they contain both html and js
 
-# Type 1:
+## Types of functional components:
+
+### Type 1:
 ```
 function Componentname() {  
     //JS code will be here. We will be not making a separate file for js
@@ -279,23 +358,8 @@ function App() {
 as output
 
 
-//In 
 ```
-after creating any react project, do clean up  process:
-- Clean up process: delete app.test.js, logo.svg, setuptest.js. delete app.js html code and app.css code, index.css
-
-- React by default adds some margin. To remove it add this code in App.css:
-```
-body {
-  margin: 0;
-}
-```
-
-"./" matlab aju baju dekho
-"../" matlab ek folder bahar jaake dekho
-
-
-- when js varibale is used inside html, its wriiten inside curly braces {}:
+- when js varibale is used inside html(i.e inside the return() fun), its written inside curly braces {}:
 ```
 function Navbar(){
     
@@ -306,7 +370,9 @@ function Navbar(){
     return(
         <div className="navbar_container">
             <div className="navbar_left">
-              {name}
+
+              {name}          //curly braces to access the js variable
+
             </div>
             <div className="navabr_right">
 
@@ -315,9 +381,20 @@ function Navbar(){
     )
 }
 ```
+## SOME IMPORTANT POINTS:
+- React by default adds some margin. To remove it add this code in App.css:
+```
+body {
+  margin: 0;
+}
+```
+
+- "./" matlab aju baju dekho. Means Search in the same folder
+- "../" matlab ek folder bahar jaake dekho. Means go out of this folder and search in there.
+- "../../" :- out of current folder, then again out of another folder
 
 Difference Between Margin and padding:
-- padding inside the boundary whereas margin is outside the bounday
+- padding is applied inside the boundary whereas margin is applied outside the bounday
 - Ex:
 ```
 .navbar_container {
@@ -331,80 +408,11 @@ Difference Between Margin and padding:
 } 
 //In this case the tags inside navbar_container will be shifted towards right
 ```
-../../ :- out of one folder, then again out of another folder
+
+- display:flex enables the flex property. Only after that  you can use other flex properties like flex-direction, justify-content,etc
 
 
-display:flex enables the flex property. After that only you can use other flex 
-properties like flex-direction, justtify-content,etc
-
-
-objects and map functions in javascript
-
-
-OBJECTS: objects are key value pairs
-```
-const a = {
-  name: "Ravi",
-  surname: "Nayak",
-  age: 10,
-}
-```
-console.log(a.name+" "+a.surname+" "+a.age);  //Ravi
-
-- In js, a fun with no name is called anonymous fun and it is totally valid.
-```
-//normal  function
-const funname = () => {   
-  console.log("Ravi");
-  return;
-}
-
-//Anonymous fun
-() => {   
-  console.log("Ravi");
-  return;
-}
-
-//but anonymous fun cannot be called as it has no existance. So where it is used then ???
-//These are used inside the map function where it is definded and called simultaneously.ex:
-
-const arr = [1,2,3,4,5];
-arr.map(()=>(
-
-))
-
-```
-MAP FUNCTIONS:
-- map is a method which has a arrow(anonymous) fun inside it
-- fun inside map fun bydefault takes two arguments out of which 1 is compulsory i.e value
-- And key is optional
-- mapping an array in javascript means to access each element of array one by one
-- In js map is same as for loop
-```
-
-const arr = [1,2,3,4,5];
-arr.map( (value, key) => (
-     console.log(value);
-))
-
-OUTPUT:
-1
-2
-3
-4
-5
-
-//value word can be changed but the keyword "key" cannot be changed:
-const arr = [1,2,3,4,5];
-arr.map( (abc, key) =>(    //val, item,etc
-
-))
-```
-- We can make objects as the elements of an array
-
-
-
-
+- The below Code is of how to use array of objects and accessing key value pairs of each object in the html:
 
 ```
 
@@ -412,14 +420,9 @@ import React from "react";
 import "./TechStack.css";
 import react from "../../images/techStack/react.png";
 import vuejs from "../../images/techStack/vuejs.png";
-import js from "../../images/techStack/js.png";
-import nodejs from "../../images/techStack/nodejs.png";
-import firebase from "../../images/techStack/firebase.png";
 import html from "../../images/techStack/html.png";
-import css from "../../images/techStack/css.png";
-import python from "../../images/techStack/python.png";
 import cpp from "../../images/techStack/cpp.png";
-import bootstrap from "../../images/techStack/bootstrap.png";
+
 
 function TechStack() {
 
@@ -433,24 +436,7 @@ function TechStack() {
             iconImage: vuejs,
             iconAltproperty: "vueJsImage",
             iconName: 'VueJs'
-        },
-        {
-            iconImage: js,
-            iconAltproperty: "jsImage",
-            iconName: 'JS'
-        },
-        {
-            iconImage: nodejs,
-            iconAltproperty: "NodeJsImage",
-            iconName: 'NodeJs'
-        },
-        {
-            iconImage: firebase,
-            iconAltproperty: "firebaseImage",
-            iconName: 'Firebase'
         }
-
-
     ]
     return(
      <div className="techstack_container">
@@ -467,82 +453,40 @@ function TechStack() {
                         <img src={vuejs} alt="react image" />
                         <p>Vue</p>
                     </div>
-
-                    <div className="techstack_image_element_container">
-                        <img src={js} alt="react image" />
-                        <p>Javascript</p>
-                    </div>
-
-                    <div className="techstack_image_element_container">
-                        <img src={nodejs} alt="react image" />
-                        <p>NodeJs</p>
-                    </div>
                     
-                    <div className="techstack_image_element_container">
-                        <img src={firebase} alt="react image" />
-                        <p>Firebase</p>
-                    </div>
-                    
-                   
-                </div>
+                 </div>
        
                 <div className="techstack_image_row1_container">
+
                     <div className="techstack_image_element_container">
                         <img src={cpp} alt="react image" />
                         <p>Cpp</p>
                     </div>
+
                     <div className="techstack_image_element_container">
                         <img src={html} alt="react image" />
                         <p>HTML</p>
                     </div>
-                    <div className="techstack_image_element_container">
-                        <img src={css} alt="react image" />
-                        <p>CSS</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={python} alt="react image" />
-                        <p>Python</p>
-                    </div>
-                    <div className="techstack_image_element_container">
-                        <img src={bootstrap} alt="react image" />
-                        <p>bootstrap</p>
-                    </div>
-                    
-                   
+   
                 </div>
-
-              
-
-            </div>
-
-            <div>
-
-            </div>
-
         </div>
-
+      <div>
     );
 }
 
 export default TechStack;
 
 ```
-
-
+- Now making the above code more optimized by mapping the array objects so that we dont have to write code for every object
 ```
 
 import React from "react";
 import "./TechStack.css";
 import react from "../../images/techStack/react.png";
 import vuejs from "../../images/techStack/vuejs.png";
-import js from "../../images/techStack/js.png";
-import nodejs from "../../images/techStack/nodejs.png";
-import firebase from "../../images/techStack/firebase.png";
 import html from "../../images/techStack/html.png";
-import css from "../../images/techStack/css.png";
-import python from "../../images/techStack/python.png";
 import cpp from "../../images/techStack/cpp.png";
-import bootstrap from "../../images/techStack/bootstrap.png";
+
 
 function TechStack() {
   const techstackData = [
@@ -555,21 +499,6 @@ function TechStack() {
       iconImage: vuejs,
       iconAltproperty: "vueJsImage",
       iconName: "VueJs",
-    },
-    {
-      iconImage: js,
-      iconAltproperty: "jsImage",
-      iconName: "JS",
-    },
-    {
-      iconImage: nodejs,
-      iconAltproperty: "NodeJsImage",
-      iconName: "NodeJs",
-    },
-    {
-      iconImage: firebase,
-      iconAltproperty: "firebaseImage",
-      iconName: "Firebase",
     },
   ];
 
@@ -584,41 +513,30 @@ function TechStack() {
       iconAltProperty: "htmlImage",
       iconName: "HTML",
     },
-    {
-      iconImage: css,
-      iconAltProperty: "cssImage",
-      iconName: "CSS",
-    },
-    {
-      iconImage: python,
-      iconAltProperty: "pythonImage",
-      iconName: "Python",
-    },
-    {
-      iconImage: bootstrap,
-      iconAltProperty: "bootstrapImage",
-      iconName: "Bootstrap",
-    },
   ];
   return (
     <div className="techstack_container">
       <p className="techstack_title">Tech Stack</p>
       <div className="techstack_image_rows_container">
         <div className="techstack_image_row1_container">
+
           {techstackData.map((value, key) => (
             <div className="techstack_image_element_container">
               <img src={value.iconImage} alt={value.iconAltProperty} />
               <p>{value.iconName}</p>
             </div>
           ))}
+
         </div>
 
         <div className="techstack_image_row1_container">
+
           {techstackData2.map((value, key) => (
             <div className="techstack_image_element_container">
               <img src={value.iconImage} alt={value.iconAltProperty} />
               <p>{value.iconName}</p>
             </div>
+
           ))}
         </div>
       </div>
@@ -630,20 +548,16 @@ export default TechStack;
 
 
 ```
+- Now we are making the above code more optimized by calling a function(showIcon) inside the map function to access the object values
 
 ```
 import React from "react";
 import "./TechStack.css";
 import react from "../../images/techStack/react.png";
 import vuejs from "../../images/techStack/vuejs.png";
-import js from "../../images/techStack/js.png";
-import nodejs from "../../images/techStack/nodejs.png";
-import firebase from "../../images/techStack/firebase.png";
 import html from "../../images/techStack/html.png";
-import css from "../../images/techStack/css.png";
-import python from "../../images/techStack/python.png";
 import cpp from "../../images/techStack/cpp.png";
-import bootstrap from "../../images/techStack/bootstrap.png";
+
 
 function TechStack() {
   const techstackData = [
@@ -656,22 +570,7 @@ function TechStack() {
       iconImage: vuejs,
       iconAltproperty: "vueJsImage",
       iconName: "VueJs",
-    },
-    {
-      iconImage: js,
-      iconAltproperty: "jsImage",
-      iconName: "JS",
-    },
-    {
-      iconImage: nodejs,
-      iconAltproperty: "NodeJsImage",
-      iconName: "NodeJs",
-    },
-    {
-      iconImage: firebase,
-      iconAltproperty: "firebaseImage",
-      iconName: "Firebase",
-    },
+    }
   ];
 
   const techstackData2 = [
@@ -684,21 +583,6 @@ function TechStack() {
       iconImage: html,
       iconAltProperty: "htmlImage",
       iconName: "HTML",
-    },
-    {
-      iconImage: css,
-      iconAltProperty: "cssImage",
-      iconName: "CSS",
-    },
-    {
-      iconImage: python,
-      iconAltProperty: "pythonImage",
-      iconName: "Python",
-    },
-    {
-      iconImage: bootstrap,
-      iconAltProperty: "bootstrapImage",
-      iconName: "Bootstrap",
     },
   ];
 
@@ -735,31 +619,36 @@ export default TechStack;
 
 ```
 
-
-# FORMS:
-- we should not change the values of a variables frequently.
+# useState Fun:
+- In react project, we should not change the values of a variables frequently.
 - For that we have State variables in react.
-- state are the variables which can abe available anywhere in the componenet. they dont have any scope like const, var and let.  Globally available in the entire component. they are acessible anywhere in the componenet
-- U state is a hook which react gives
+- State are the variables which can be used everywhere inside the component. They dont have any scope like const, var and let. They are Globally available in the entire component and are acessible from anywhere in the component.
+-  useState is a hook which react gives to change the value of a variable frequently based on our requirement
 - A hook is something that react gives which makes our life easier.
 - using hooks we can do many advanced things that are normally not possible through js
 - So hooks are some additional tools which helps us to use react better
-- how to create usestate varibale = syntax of usestate
+- Before using the useState fun, we need to import it from react. Ex:
+```
+import {useState} from "react";
+```
+- how to create usestate varibale OR syntax of usestate:
 ```
 const [variableName, setvaribaleName] = usestate(initialValue)
-
-//let or var can also be used
-//varibleName is the name of the variable : 1st parameter
-//setvariableName is a fun   : 2nd parameter
-//usestate(initialValue) is the calling the usestate fun which we imported in the 1st line to assign and we
-provide the initialvalue of name varianle
-ex:- 
+```
+- let or var can also be used
+- Here, 1st parameter: varibleName is the name of the variable
+- 2nd parameter: setvariableName which is a fun that sets value to the variable.
+- usestate(initialValue) is calling the usestate fun to assign new value to the variable
+- Name of 2nd param = set+Name_of_1st_param. 
+- initialvalue : provides the initialvalue of the variable
+- Ex:- 
+```
 let name = "Ravi";
+
 const [name, setname] = usestate("Ravi");  //assign "Ravi" as a initialValue to the variable name
 
-both are same
+//both the above statements are same
 ```
-line 9 and 10 are exactly same
 - BTS of setName
 - whenever we press any key, that is an event
 - dot is applied to access values from objects
@@ -1225,3 +1114,11 @@ export default Home;
 1. onlcick says to navigate to which page
 2. Then App.js calls the respective component of that page 
 - In react every thing should be wrapped inside one tag in the return function
+
+
+# Navigation is a two-step process:
+1. You change the url
+2. Then you call the respective component
+
+
+- Firebase is a tool provided by Google. It uses MongoDb which is a non-sequel database

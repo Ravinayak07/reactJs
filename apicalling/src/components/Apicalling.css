@@ -1,11 +1,11 @@
-/* .apicalling_container{
+ .apicalling_container{
+    
+}
+
+.apidata_container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.apidata_container{
-    width: 400px;
-    height: 500px;
-} */
+   
+} 

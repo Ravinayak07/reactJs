@@ -9,7 +9,7 @@ function Apicalling() {
     const [surname, setsurName] = useState("")
 
     //to accesss the data variable outside its scope
-    const [apiData, setapiData] = useState(null)
+    const [apiData, setapiData] = useState([]);
 
     const callApi = () => {
             fetch(endpoint)
